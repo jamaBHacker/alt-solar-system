@@ -1,0 +1,75 @@
+#include "include.h"
+
+#ifndef KEYBOARD_H
+#define KEYBOARD_H
+
+void processSpecialKeys(int key, int eyex, int eyey) {
+
+	float fraction = 0.1f;
+
+	switch (key) {
+		case GLUT_KEY_LEFT :
+			angle2 -= 0.01f;
+			lx = sin(angle2);
+			lz = -cos(angle2);
+			break;
+		case GLUT_KEY_RIGHT :
+			angle2 += 0.01f;
+			lx = sin(angle2);
+			lz = -cos(angle2);
+			break;
+		case GLUT_KEY_UP :
+			eyex += lx * fraction;
+			eyez += lz * fraction;
+			break;
+		case GLUT_KEY_DOWN :
+			//if( eyez >= -2.51 && eyex <= 632)
+			//{
+				eyex -= lx * fraction;
+				eyez -= lz * fraction;
+			//}
+			break;
+		case GLUT_KEY_HOME :
+			for(int i = 0; i < 9; i++ )
+				upx++;
+			break;
+		case GLUT_KEY_F1 :
+			eyex--;
+			break;
+		case GLUT_KEY_F2 :
+			eyey--;
+			break;
+		case GLUT_KEY_F3 :
+			eyez--;
+			break;
+		case GLUT_KEY_F4 :
+			upx--;
+			break;
+		case GLUT_KEY_F5 :
+			upy--;
+			break;
+		case GLUT_KEY_F6 :
+			upz--;
+			break;
+		case GLUT_KEY_F7 :
+			eyex++;
+			break;
+		case GLUT_KEY_F8 :
+			eyey++;
+			break;
+		case GLUT_KEY_F9 :
+			eyez ++;
+			break;
+		case GLUT_KEY_F10 :
+			upx--;
+			break;
+		case GLUT_KEY_F11 :
+			upy++;
+			break;
+		case GLUT_KEY_F12 :
+			upz++;
+			break;
+	}
+}
+
+#endif
